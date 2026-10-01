@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://b53h1p7lqiwwt"]
+
+[ext_resource type="Script" uid="uid://bontoneoovwut" path="res://Scripts/World.gd" id="1_7ue1m"]
+[ext_resource type="PackedScene" uid="uid://bvrr6k6frukh3" path="res://Scenes/CaracterScene.tscn" id="1_b7dwy"]
+[ext_resource type="Texture2D" uid="uid://dleewc1vnprkj" path="res://Assets/Ground.png" id="2_7ue1m"]
+[ext_resource type="Texture2D" uid="uid://dbv6dax5pv28r" path="res://Assets/BackgroundFase2.png" id="3_wpaju"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d3ie7"]
+distance = -11.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ycpi2"]
+normal = Vector2(1, 0)
+distance = -14.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4qvor"]
+normal = Vector2(-1, 0)
+distance = -14.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dgr2y"]
+normal = Vector2(0, 1)
+distance = -11.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3ie7"]
+size = Vector2(119, 176.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycpi2"]
+size = Vector2(119.5, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qvor"]
+size = Vector2(174, 39)
+
+[node name="Fase2" type="Node2D" unique_id=1260627617]
+position = Vector2(448, 248)
+script = ExtResource("1_7ue1m")
+
+[node name="CharacterBody2D" parent="." unique_id=2002680570 instance=ExtResource("1_b7dwy")]
+position = Vector2(-136, 74)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1074322520]
+position = Vector2(144, 80)
+
+[node name="Castle" type="StaticBody2D" parent="." unique_id=299358236]
+position = Vector2(121, 82)
+
+[node name="Ground" type="CollisionShape2D" parent="Castle" unique_id=27124273]
+position = Vector2(-8, 310)
+shape = SubResource("WorldBoundaryShape2D_d3ie7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Castle/Ground" unique_id=691943870]
+position = Vector2(29.000015, 13.625003)
+scale = Vector2(3.526627, 0.042452868)
+texture = ExtResource("2_7ue1m")
+
+[node name="Wall1" type="CollisionShape2D" parent="Castle" unique_id=819336259]
+position = Vector2(-257, 15)
+shape = SubResource("WorldBoundaryShape2D_ycpi2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Castle/Wall1" unique_id=1573927564]
+position = Vector2(-22.999992, -11.249995)
+scale = Vector2(0.10059182, 4.1163526)
+texture = ExtResource("2_7ue1m")
+
+[node name="Wall2" type="CollisionShape2D" parent="Castle" unique_id=794252936]
+position = Vector2(311, 24)
+shape = SubResource("WorldBoundaryShape2D_4qvor")
+
+[node name="Sprite2D" type="Sprite2D" parent="Castle/Wall2" unique_id=1887915588]
+position = Vector2(20.062496, -24.874998)
+scale = Vector2(0.058431946, 4.102201)
+texture = ExtResource("2_7ue1m")
+
+[node name="Roof" type="CollisionShape2D" parent="Castle" unique_id=2048092845]
+position = Vector2(3, -314)
+shape = SubResource("WorldBoundaryShape2D_dgr2y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Castle/Roof" unique_id=914761247]
+position = Vector2(16.5, -15.374995)
+scale = Vector2(3.662722, 0.10534602)
+texture = ExtResource("2_7ue1m")
+
+[node name="Background2" type="Sprite2D" parent="." unique_id=2085826581]
+position = Vector2(157.99998, 76.000015)
+scale = Vector2(1.8875, 1.834375)
+texture = ExtResource("3_wpaju")
+
+[node name="Platform" type="StaticBody2D" parent="." unique_id=920877165]
+position = Vector2(-1, 1)
+
+[node name="left" type="CollisionShape2D" parent="Platform" unique_id=1484752944]
+position = Vector2(-89.5, 316.25)
+shape = SubResource("RectangleShape2D_d3ie7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform/left" unique_id=1508322660]
+position = Vector2(-2.0000029, 0.25001)
+scale = Vector2(0.73964494, 1.1132073)
+texture = ExtResource("2_7ue1m")
+
+[node name="Rigt" type="CollisionShape2D" parent="Platform" unique_id=1435094541]
+position = Vector2(386.75, 313)
+shape = SubResource("RectangleShape2D_ycpi2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform/Rigt" unique_id=1733436393]
+position = Vector2(2.2500038, 0.99999857)
+scale = Vector2(0.7337279, 1.1698114)
+texture = ExtResource("2_7ue1m")
+
+[node name="Middle" type="CollisionShape2D" parent="Platform" unique_id=1875226450]
+position = Vector2(139, 101)
+shape = SubResource("RectangleShape2D_4qvor")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform/Middle" unique_id=1821331550]
+position = Vector2(2.6226044e-06, -0.5000089)
+scale = Vector2(1.0295858, 0.24528301)
+texture = ExtResource("2_7ue1m")
